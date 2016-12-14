@@ -25,11 +25,14 @@
 #include <cstdlib>
 #include <ctime>
 #include <experimental/random>
+#include <bitset>
+#include <type_traits>
 
 #include "sha1.h"
 
 #include "options.h"
 #include "complex.h"
+#include "matrix.h"
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"

@@ -220,6 +220,36 @@ struct ci_less : std::binary_function<std::string, std::string, bool> {
     }
 };
 
+int lexicographical()
+{
+    std::string str[10], temp;
+
+    std::cout << "Enter 10 words: " << std::endl;
+    for(int i = 0; i < 10; ++i)
+    {
+      std::getline(std::cin, str[i]);
+    }
+
+    for(int i = 0; i < 9; ++i)
+       for( int j = i+1; j < 10; ++j)
+       {
+          if(str[i] > str[j])
+          {
+            temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
+          }
+    }
+
+    std::cout << "In lexicographical order: " << std::endl;
+
+    for(int i = 0; i < 10; ++i)
+    {
+       std::cout << str[i] << std::endl;
+    }
+    return 0;
+}
+
 void Runner::run() {
 
     std::cout << std::endl << ANSI_COLOR_GREEN << ">> booting up...";
@@ -245,6 +275,51 @@ void Runner::run() {
     
     std::cout << "-- SparseHash :: " << sdb["1:1"] << std::endl;
     
+    // ---
+
+    //lexicographical();
+
+    // ---
+    
+    if (1 == 0) { // disabled
+        std::vector<int> range {1,2,3,4};
+        do {
+            std::copy(std::begin(range), std::end(range), std::ostream_iterator<int> {std::cout, " "});
+            std::cout << std::endl;
+        } while(std::next_permutation(std::begin(range), std::end(range)));
+    }
+    
+    // ---
+    
+    // decimal to and from binary
+    unsigned long input = 277;
+    
+    std::string binary = std::bitset<16>(277).to_string();
+    std::cout << "-- Lib :: binary(" << input << ") = " << binary << std::endl;
+
+    unsigned long decimal = std::bitset<16>(binary).to_ulong();
+    std::cout << "-- Lib :: decimal(" << binary << ") = " << decimal << std::endl;
+
+    // ---
+    
+    Matrix<double> m1;
+    
+    m1[0][0] = 3.14;
+    
+    std::cout << m1[0][0] << std::endl;
+    std::cout << m1[1][0] << std::endl;
+    
+    m1.debug(std::cout);
+    
+    m1[1][0] = 3.15;
+    
+    std::cout << m1[0][0] << std::endl;
+    std::cout << m1[1][0] << std::endl;
+    
+    m1.debug(std::cout);
+    
+    std::cout << " {rows: " << m1.rows << ", cols: " << m1.cols << "}" << std::endl;
+
     // ---
 
     exit(0);

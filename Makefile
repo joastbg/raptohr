@@ -6,9 +6,9 @@ CC  = g++
 
 # Define what to do when make is executed without arguments.
 all: raptohr
-	g++ $(CXXFLAGS) -o raptohr options.o runner.o sha1.o complex.o matrix.o raptohr.o 
+	g++ $(CXXFLAGS) -o raptohr options.o runner.o sha1.o complex.o matrix.o misc.o raptohr.o 
 
-raptohr: raptohr.o options.o runner.o sha1.o complex.o matrix.o
+raptohr: raptohr.o options.o runner.o sha1.o complex.o matrix.o misc.o
 
 # Define the rules for the object files.
 raptohr.o: raptohr.cc
@@ -28,6 +28,9 @@ complex.o: complex.cc
 	
 matrix.o: matrix.cc
 	$(CXX) -c matrix.cc
+
+misc.o: misc.cc
+	$(CXX) -c misc.cc
 		
 clean:
 	rm -rf *o raptohr

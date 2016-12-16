@@ -318,8 +318,38 @@ void Runner::run() {
     
     m1.debug(std::cout);
     
-    std::cout << " {rows: " << m1.rows << ", cols: " << m1.cols << "}" << std::endl;
+    std::cout << "{rows: " << m1.rows << ", cols: " << m1.cols << "}" << std::endl;
+    
+    // ---
+    
+    std::vector<int> v1 {1,2,3,4,5,6,7,8,9,10};
+    std::vector<int> v2 {11,12,13,14,15,16,17,18,19,20};
+    
+    // interleave (merge)
+    std::vector<int> dst;
+    std::merge(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(dst));
+    
+    std::cout << "-- Lib :: interleaved:" << std::endl << " ";
+    std::copy(dst.begin(), dst.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
 
+    // ---
+
+    unsigned short x = 0x0;
+    unsigned short y = 0xFFFF;
+    unsigned int z;
+
+    z = MortonTable256[y >> 8]   << 17 | 
+        MortonTable256[x >> 8]   << 16 |
+        MortonTable256[y & 0xFF] <<  1 | 
+        MortonTable256[x & 0xFF];
+
+    std::cout << std::bitset<32>(z).to_string() << std::endl;
+
+    // ---
+
+    test_gray();
+    
     // ---
 
     exit(0);

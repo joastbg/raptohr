@@ -68,12 +68,18 @@ public:
         out << "-- Matrix :: debug:" << std::endl;
         for (auto it = repr.begin(); it != repr.end(); ++it) {
             out << " [" << it->first << "] = " << it->second << ";";
-        }
+        }        
         out << std::endl;
+        
+        out << " trace = " << this->trace() << std::endl; 
     }
         
     // misc properties
-	inline double trace() const { return 0; }
+	inline T trace() const { 
+        T t{};
+        return t;
+    }
+    
     inline double det() const { return 0; }
     inline double rank() const { return 0; }
         

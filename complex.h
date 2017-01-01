@@ -33,8 +33,7 @@ public:
 		T im;
 		};
 		T cr[2];
-	};
-        
+	};        
 	
     friend std::ostream& operator<< <>(std::ostream&, Complex<T>&);
     
@@ -49,7 +48,7 @@ public:
         return ss.str();
     }
     
-    // arithmetic operators        
+    // arithmetic operators
 	inline Complex operator+(const Complex& b) const { return Complex(re + b.re, im + b.im); }
 	inline Complex operator-(const Complex& b) const { return Complex(re - b.re, im - b.im); }
     

@@ -32,6 +32,7 @@
 #include "options.h"
 #include "complex.h"
 #include "matrix.h"
+#include "signal.h"
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"

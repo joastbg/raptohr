@@ -1,3 +1,12 @@
+// --------------------------------------------------------
+// 
+//
+// 
+//
+// Copyright 2016 Gautr Systems AB
+// http://www.github.com/joastbg 
+// --------------------------------------------------------
+
 #include "runner.h"
 
 std::unordered_map<std::string, std::string> db;
@@ -352,7 +361,7 @@ void Runner::run() {
     
     // ---
 
-    exit(0);
+    //exit(0);
 
     // Do testing (2)
     DBTriple spo1("johan", "is-friend-of", "kalle");   
@@ -397,7 +406,19 @@ void Runner::run() {
 
     // ---
     
-    //exit(0);
+    Hash<int> hash;
+    std::cout << "-- Hash :: hash(10, 20) = " << hash(std::pair<int,int>(10,20)) << std::endl;
+    
+    // ---
+    
+    Signal<Complex<double>> cs;        
+    cs.add(c1);
+    cs.add(c2);    
+    std::cout << cs << std::endl;
+    
+    // ---
+    
+    exit(0);
 
     // Load data
     std::string line;

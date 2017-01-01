@@ -17,6 +17,14 @@
 #include <unordered_map>
 #include <type_traits>
 
+template <class int_type>
+class Hash {
+public:
+    size_t operator()(const std::pair<int_type,int_type> &p) const {
+        return p.first + 71437 * p.second; 
+    }
+};
+
 template <typename T>
 class Matrix;
 

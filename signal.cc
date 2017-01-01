@@ -1,10 +1,11 @@
 // --------------------------------------------------------
-// COMPLEX NUMBER IMPL.
+// SIGNAL IMPL.
 //
-// Motivation: Portability
+// Motivation: -
 //
 // Copyright 2016 Gautr Systems AB
 // http://www.github.com/joastbg 
 // --------------------------------------------------------
 
-#include "complex.h"
+#include "signal.h"
+
